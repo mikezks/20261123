@@ -26,11 +26,10 @@ export default [
                         "^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$"
                     ],
                     depConstraints: [
+                        { sourceTag: "*", onlyDependOnLibsWithTags: ["*"] },
                         {
-                            sourceTag: "*",
-                            onlyDependOnLibsWithTags: [
-                                "*"
-                            ]
+                            sourceTag: "domain:luggage",
+                            onlyDependOnLibsWithTags: ["domain:luggage", "domain:shared"]
                         }
                     ]
                 }

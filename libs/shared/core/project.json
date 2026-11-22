@@ -4,7 +4,7 @@
   "sourceRoot": "libs/shared/core/src",
   "prefix": "app",
   "projectType": "library",
-  "tags": [],
+  "tags": ["domain:shared"],
   "targets": {
     "build": {
       "executor": "@nx/angular:ng-packagr-lite",

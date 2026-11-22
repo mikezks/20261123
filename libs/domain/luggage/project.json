@@ -4,7 +4,7 @@
   "sourceRoot": "libs/domain/luggage/src",
   "prefix": "app",
   "projectType": "library",
-  "tags": [],
+  "tags": ["domain:luggage"],
   "targets": {
     "build": {
       "executor": "@nx/angular:ng-packagr-lite",
