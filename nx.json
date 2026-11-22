@@ -60,6 +60,7 @@
           "{workspaceRoot}/.eslintignore",
           "{workspaceRoot}/eslint.config.mjs",
           "{workspaceRoot}/tools/eslint-rules/**/*",
+          "{workspaceRoot}/sheriff.config.ts",
           {
             "externalDependencies": [
               "eslint"
