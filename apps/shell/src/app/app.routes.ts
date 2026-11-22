@@ -1,3 +1,4 @@
+import { loadRemoteModule } from '@angular-architects/native-federation';
 import { Routes } from '@angular/router';
 import { HomeComponent } from '@flight-demo/shared/core';
 
@@ -25,6 +26,10 @@ export const APP_ROUTES: Routes = [
     loadChildren: () => import('@flight-demo/domain/boarding')
   },
   { path: 'luggage', loadChildren: () => import('@flight-demo/domain/luggage') },
+  {
+    path: 'miles',
+    loadComponent: () => loadRemoteModule('miles', './Component')
+  },
   {
     path: '**',
     redirectTo: 'home'

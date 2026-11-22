@@ -45,7 +45,8 @@
     "@sheriff-arch/sheriff-core": "^0.21.1",
     "@vitest/browser-playwright": "^5.1.1",
     "ng-packagr": "^22.3.0",
-    "playwright": "^1.65.1"
+    "playwright": "^1.65.1",
+    "@softarc/native-federation-orchestrator": "^4.10.0"
   },
   "dependencies": {
     "@angular/common": "~22.3.0",

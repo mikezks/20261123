@@ -60,6 +60,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           </a>
         </li>
 
+        <li routerLinkActive="active">
+          <a routerLink="/miles">
+            <i class="icon icon-flight"></i>
+            <p>Miles</p>
+          </a>
+        </li>
+
       </ul>
 
     </div>
