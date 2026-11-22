@@ -1,0 +1,15 @@
+{
+  "name": "@flight-demo/domain/checkin",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^22.3.0",
+    "@angular/core": "^22.3.0",
+    "@angular/forms": "~22.3.0",
+    "@angular/router": "~22.3.0",
+    "rxjs": "~7.8.2",
+    "@ngrx/signals": "^22.0.1",
+    "@flight-demo/shared/navigation": "0.0.1"
+  },
+  "sideEffects": false,
+  "private": true
+}
