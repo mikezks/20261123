@@ -29,6 +29,7 @@ libs/
     boarding/
     booking/
     checkin/
+    luggage/
   shared/
     core/
     navigation/
@@ -45,7 +46,7 @@ npm test
 npm run lint
 ```
 
-`npm test` runs the existing shell, booking and core tests. The other libraries do not currently contain test suites. Run a specific suite with `npx nx test core` or `npm run test:booking`.
+`npm test` runs the shell, booking, core and luggage tests. The other libraries do not currently contain test suites. Run a specific suite with `npx nx test core` or `npm run test:booking`.
 
 ## Generate code
 

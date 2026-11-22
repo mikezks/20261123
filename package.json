@@ -7,7 +7,7 @@
     "start": "nx serve shell",
     "build": "nx build shell",
     "watch": "nx build shell --watch --configuration development",
-    "test": "nx run-many -t test --projects=shell,booking,core --parallel=2",
+    "test": "nx run-many -t test --projects=shell,booking,core,luggage --parallel=2",
     "test:booking": "nx test booking",
     "lint": "nx run-many -t lint --all --parallel=2"
   },
