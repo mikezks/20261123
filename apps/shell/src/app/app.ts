@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderbarComponent, SidebarComponent } from '@flight-demo/shared/core';
-import { AuthService } from '@flight-demo/shared/auth';
 
 
 @Component({
@@ -33,7 +32,4 @@ import { AuthService } from '@flight-demo/shared/auth';
   `
 })
 export class App {
-  constructor() {
-    inject(AuthService).login('Max Mustermann');
-  }
 }

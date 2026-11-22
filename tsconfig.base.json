@@ -41,9 +41,6 @@
       ],
       "@flight-demo/domain/luggage": [
         "./libs/domain/luggage/src/index.ts"
-      ],
-      "@flight-demo/shared/auth": [
-        "./libs/shared/auth/src/index.ts"
       ]
     }
   },
