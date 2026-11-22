@@ -41,6 +41,8 @@
     "vitest": "^5.1.1",
     "@ngrx/schematics": "^22.0.1",
     "@ngrx/store-devtools": "^22.0.1",
+    "@sheriff-arch/eslint-plugin-sheriff": "^0.21.1",
+    "@sheriff-arch/sheriff-core": "^0.21.1",
     "@vitest/browser-playwright": "^5.1.1",
     "ng-packagr": "^22.3.0",
     "playwright": "^1.65.1"
