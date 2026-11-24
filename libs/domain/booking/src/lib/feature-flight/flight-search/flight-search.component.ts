@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, effect, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, signal, untracked } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Flight } from '../../logic-flight/model/flight';
 import { FlightFilter } from '../../logic-flight/model/flight-filter';
@@ -39,6 +39,10 @@ export class FlightSearchComponent {
 
   constructor() {
     effect(() => console.log(this.route()));
+    effect(() => {
+      this.filter();
+      untracked(() => this.search());
+    });
 
     /* console.log(this.filter().from);
     this.filter.update(curr => ({ ...curr, from: 'Madrid' }));
@@ -52,16 +56,10 @@ export class FlightSearchComponent {
     this.filter.update(curr => ({ ...curr, from: 'Utrecht' }));
     console.log(this.filter().from); */
 
-    
+
   }
 
-  protected search(filter: FlightFilter): void {
-    this.filter.set(filter);
-
-    if (!this.filter().from || !this.filter().to) {
-      return;
-    }
-
+  protected search(): void {
     this.ticketsFacade.search(this.filter());
   }
 

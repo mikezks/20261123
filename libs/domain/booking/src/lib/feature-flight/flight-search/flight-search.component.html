@@ -6,9 +6,14 @@
 
     <div class="card-body">
       <app-flight-filter
-        [filter]="filter()"
-        (searchTrigger)="search($event)"
+        [(filter)]="filter"
+        (filterChange)="search()"
       >
+      <!-- <app-flight-filter
+        [filter]="filter()"
+        (filterChange)="filter.set($event)"
+        (filterChange)="search()"
+      > -->
         @if (flights.length) {
           <div class="flight-filter-info">
             {{ flights.length }} flights found!
