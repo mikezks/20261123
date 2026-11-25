@@ -53,6 +53,7 @@ export class PassengerService {
 
   findByIdAsResource(id: Signal<number>): ResourceRef<Passenger | undefined> {
     return resource({
+      // params: () => id(),
       params: id,
       loader: ({ params: id, abortSignal }) => fetch(
         [this.baseUrl, 'passenger', id].join('/'),

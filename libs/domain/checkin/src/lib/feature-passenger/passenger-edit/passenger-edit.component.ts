@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, effect, inject, input, numberAttribute } from '@angular/core';
-import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { ChangeDetectionStrategy, Component, effect, inject, input, numberAttribute, Signal } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { signalOperators } from '@flight-demo/shared/core';
 import { validatePassengerStatus } from '../../util-validation/passenger-validator/passenger-status.validator';
@@ -31,15 +30,20 @@ export class PassengerEditComponent {
   });
 
   readonly id = input(0, { transform: numberAttribute });
-  private passenger = signalOperators(this.id, pipe(
-    switchMap(id => this.passengerService.findById(id))
-  ), initialPassenger);
+  private passengerResource = this.passengerService.findByIdAsResource(this.id);
   
   constructor() {
-    effect(() => this.editForm.patchValue(this.passenger()));
+    effect(() => {
+      if (this.passengerResource.hasValue()) {
+        this.editForm.patchValue(this.passengerResource.value());
+      }
+    });
   }
 
   protected save(): void {
+    this.passengerResource.set(
+      this.editForm.getRawValue()
+    );
     console.log(this.editForm.value);
   }
 }

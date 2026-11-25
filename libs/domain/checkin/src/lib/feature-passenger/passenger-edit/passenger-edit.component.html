@@ -51,6 +51,14 @@
       >
         Save
       </button>
+      <button
+        (click)="passengerResource.reload()"
+        [disabled]="!editForm.valid"
+        class="btn btn-default"
+      >
+        Reload
+      </button>
     </div>
+    <p>Status: {{ passengerResource.status() }}</p>
   </div>
 </div>
