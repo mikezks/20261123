@@ -56,7 +56,14 @@ export class FlightSearchComponent {
     this.filter.update(curr => ({ ...curr, from: 'Utrecht' }));
     console.log(this.filter().from); */
 
-
+    // Glitch-free Behavior
+    /* const counter = signal(0);
+    const isEven = computed(() => counter() % 2 === 0);
+    effect(() => console.log({
+      counter:  untracked(() => counter()),
+      isEven: isEven()
+    }));
+    setInterval(() => counter.update(curr => curr + 1), 2_000); */
   }
 
   protected search(): void {
