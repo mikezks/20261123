@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { routerFeature } from '@flight-demo/shared/state';
 import { Store } from '@ngrx/store';
 import { initialFlight } from '../../logic-flight/model/flight';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 
 @Component({
@@ -16,6 +17,7 @@ import { initialFlight } from '../../logic-flight/model/flight';
 })
 export class FlightEditComponent implements OnChanges {
   private store = inject(Store);
+  private destroyRef = inject(DestroyRef);
 
   @Input() flight = initialFlight;
 
@@ -28,7 +30,13 @@ export class FlightEditComponent implements OnChanges {
   });
 
   constructor() {
-    this.store.select(routerFeature.selectRouteParams).subscribe(
+    this.destroyRef.onDestroy(
+      () => console.log('Bye, bye! :(')
+    );
+
+    this.store.select(routerFeature.selectRouteParams).pipe(
+      takeUntilDestroyed()
+    ).subscribe(
       params => console.log(params)
     );
   }

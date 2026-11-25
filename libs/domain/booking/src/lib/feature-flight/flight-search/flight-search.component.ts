@@ -27,6 +27,8 @@ export class FlightSearchComponent {
     from: 'Paris',
     to: 'New York',
     urgent: false
+  }, {
+    debugName: 'mySpecialFlightFilter'
   });
   private readonly route = computed(
     () => 'From ' + this.filter().from + ' to ' + this.filter().to + '.'
@@ -35,7 +37,7 @@ export class FlightSearchComponent {
     3: true,
     5: true
   };
-  protected flights$ = this.ticketsFacade.flights$;
+  protected flights = this.ticketsFacade.flights;
 
   constructor() {
     effect(() => console.log(this.route()));
