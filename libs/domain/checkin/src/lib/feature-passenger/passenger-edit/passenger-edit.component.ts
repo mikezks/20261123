@@ -30,14 +30,11 @@ export class PassengerEditComponent {
   });
 
   readonly id = input(0, { transform: numberAttribute });
-  private readonly id$ = toObservable(this.id);
-  private readonly passenger$ = this.id$.pipe(
-    switchMap(id => this.passengerService.findById(id))
+  private passenger = toSignal(
+    toObservable(this.id).pipe(
+      switchMap(id => this.passengerService.findById(id))
+    ), { initialValue: initialPassenger }
   );
-  private passenger = toSignal(this.passenger$, {
-    initialValue: initialPassenger
-    // requireSync: true
-  });
 
   constructor() {
     effect(() => this.editForm.patchValue(this.passenger()));
